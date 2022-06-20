@@ -1,11 +1,37 @@
 .homepageheader {
     margin: auto;
     width: 100%;
-    height: 500px;
+    height: 80px;
     padding: 30px;
-    text-align: center;
 }
 
-.h1 {
+.welcome {
+    margin: auto;
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}
+h1 {
     color-scheme: brown;
+}
+
+h2 {
+    font-size: medium;
+    font-style: initial;
+}
+
+.btn {
+    border: none;
+    background-color: rgb(94, 27, 133);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+      0px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
 }
