@@ -2,7 +2,16 @@
     margin: auto;
     width: 100%;
     height: 80px;
-    padding: 30px;
+    
+}
+
+.highscores {
+    text-align: left;
+
+}
+
+.countdown {
+    text-align: right;
 }
 
 .welcome {
