@@ -6,6 +6,8 @@ var D = document.getElementById("choiceD");
 var questionDiv = document.getElementById("quizQuestionsId");
 var questionTitle = document.getElementById('questionTitle');
 
+
+
 var questionIndex;
 
 var questions = [
@@ -27,44 +29,66 @@ var questions = [
     }
 ]
 
+function nextQuestion() {
+    questionTitle.textContent = questions[questionIndex].question;
+    A.textContent = questions[questionIndex].choices[0];
+    B.textContent = questions[questionIndex].choices[1];
+    C.textContent = questions[questionIndex].choices[2];
+    D.textContent = questions[questionIndex].choices[3];
 
+}
 
+questionIndex++;
+if (questionIndex >= questions.length) {
+    gameOver();
+} else {
+    nextQuestion;
+}
 
+var startQuizIdButton = document.getElementById("startQuizId");
+startQuizIdButton.addEventListener("click",quizQuestionsFunction);
 
-
-
-var starQuizIdButton = document.getElementById("startQuizId");
-starQuizIdButton.addEventListener("click",quizQuestionsFunction);
 A.addEventListener("click",chooseA);
 B.addEventListener("click",chooseB);
 C.addEventListener("click",chooseC);
 D.addEventListener("click",chooseD);
 
-function chooseA() { 
-    console.log("User press A")
-checkAnswer(0);
+function chooseA() { checkAnswer(0);
     }
 
-function chooseB() { console.log("User press B")
-checkAnswer(1);
+function chooseB() { checkAnswer(1);
 }
 
-function chooseC() { console.log("User press C")
-checkAnswer(2);
+function chooseC() { checkAnswer(2);
 }
-function chooseD() { console.log("User press D")
-checkAnswer(3);
+function chooseD() { checkAnswer(3);
 }
 
 
 //starts the quiz with the timer
+var totalTime = 60;
+var penalty = 10;
+var i = 0
 function quizQuestionsFunction() {
     questionIndex = 0;
-    //console.log("you are clicking start quiz button")
-    //askQuestions();
+    totalTime = 60;
+    timeLeft.textContent = totalTime;
+    startQuizIdButton.style.display = "none";
+    
+   
     questionDiv.style.display = "block";
-    //clockID = setInterval(stopwatch, 1000);
-
+   
+    var startTimer = setInterval(function() {
+        totalTime--;
+        timeLeft.textContent = totalTime;
+        if(totalTime <= 0) {
+            clearInterval(startTimer);
+        if (questionIndex < questions.length -1) {
+                nextQuestion();
+            }
+        }
+    },1000);
+    
     questionTitle.textContent = questions[questionIndex].question;
     A.textContent = questions[questionIndex].choices[0];
     B.textContent = questions[questionIndex].choices[1];
@@ -77,11 +101,28 @@ function checkAnswer(answer) {
     answerCheck.style.display = "block";
     if (questions[questionIndex].answer === questions[questionIndex].choices[answer]) {
        
-        // console.log(correctAns);
+       
         answerCheck.textContent = "Correct!";
     } else {
-
-    
+            
     answerCheck.textContent = "Incorrect!"
     }
+
+    if (i < questions.length - 1) {
+        i++;
+        nextQuestion();
+
+    } else {
+        
+        clearInterval(totalTime);
+        gameOver();
+    }
+
+
+
+
+
+    function gameOver() {
+      
+}
 }
