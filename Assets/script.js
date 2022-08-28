@@ -59,7 +59,9 @@ function quizQuestionsFunction() {
 
     
     }
-questionIndex++;
+
+ questionIndex ++;
+
 if (questionIndex >= questions.length) {
     gameOver();
     console.log('gameover');
@@ -166,7 +168,7 @@ function checkAnswer(answer) {
     };
 
 } else {
-    currentQuestion ++;
+    currentQuestion++;
     answerCheck.style.display = "block";            
     answerCheck.textContent = "Incorrect!";
 
