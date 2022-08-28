@@ -11,7 +11,7 @@ var countdown = document.getElementById("timeLeft");
 var startQuizIdButton = document.getElementById("startQuizId");
 var answerCheck = document.getElementById("answerCheck");
 var timerDisplay = document.getElementById('timeLeft');
-
+var questionIndex = 0
 
 
 
@@ -60,7 +60,7 @@ function quizQuestionsFunction() {
     
     }
 
- questionIndex ++;
+ //questionIndex ++;
 
 if (questionIndex >= questions.length) {
     gameOver();
